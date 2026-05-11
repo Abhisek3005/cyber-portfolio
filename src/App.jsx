@@ -2,66 +2,115 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 const profile = {
   name: "Abhisek Das",
-  role: "Aspiring Junior Penetration Tester",
+  role: "Technical Support Engineer | Aspiring Penetration Tester",
   currentRole: "Technical Support Engineer",
   location: "Bhubaneswar, India",
   email: "abhisekdas100304@gmail.com",
   github: "https://github.com/Abhisek3005",
   linkedin: "https://www.linkedin.com/in/abhisek-das-0052a5277",
   summary:
-    "Technical Support Engineer transitioning into ethical hacking and junior penetration testing. I bring troubleshooting discipline, networking fundamentals, Linux practice, hands-on security labs, and clean pentest-style documentation.",
+    "Technical Support Engineer transitioning into penetration testing and ethical hacking. Hands-on experience with web application security labs, OWASP testing, Linux fundamentals, reconnaissance, vulnerability assessment, and cybersecurity reporting through practical learning environments including Defronix DCJSP and DEHE labs.",
 };
+
+<section className="relative z-10 mx-auto max-w-7xl px-6 py-20 md:px-10">
+  <Reveal>
+    <p className="section-kicker">Training & Labs</p>
+    <h2 className="mb-8 mt-2 text-3xl font-black md:text-5xl">
+      Cybersecurity learning journey
+    </h2>
+  </Reveal>
+
+  <div className="grid gap-6 md:grid-cols-2">
+    {training.map((item, index) => (
+      <Reveal key={item.title} delay={index * 100}>
+        <TiltCard>
+          <Card className="project-card rounded-[1.5rem] border-emerald-300/10 bg-slate-900/70 backdrop-blur-xl">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-black text-white">
+                {item.title}
+              </h3>
+
+              <p className="mt-4 leading-7 text-slate-300">
+                {item.description}
+              </p>
+            </CardContent>
+          </Card>
+        </TiltCard>
+      </Reveal>
+    ))}
+  </div>
+</section>
 
 const projects = [
   {
-    title: "Web App Security Lab",
+    title: "Phishing Attack Simulation & 2FA Bypass",
     description:
-      "Practiced OWASP Top 10 concepts in legal lab environments. Documented findings, risk level, evidence, and remediation steps in a clean pentest-style report.",
-    tags: ["OWASP Top 10", "Burp Suite", "Reporting"],
+      "Built and deployed an educational phishing simulation environment using AWS EC2, PHP, Evilginx, and FileZilla to demonstrate credential capture risks and session-based 2FA bypass techniques in authorized lab environments.",
+    tags: ["AWS", "PHP", "Evilginx", "Security Awareness"],
     link: "#",
   },
   {
-    title: "Network Recon Practice",
+    title: "Web Application Pentesting Lab",
     description:
-      "Built a small home lab to understand ports, services, DNS, HTTP behavior, and safe reconnaissance workflows for authorized targets only.",
-    tags: ["Networking", "Nmap", "Linux"],
+      "Performed hands-on OWASP Top 10 practice including SQL Injection, authentication testing, XSS basics, request manipulation, and vulnerability validation using Burp Suite in legal lab environments.",
+    tags: ["OWASP", "Burp Suite", "Web Security"],
     link: "#",
   },
   {
-    title: "Linux Privilege Basics",
+    title: "Network Reconnaissance Lab",
     description:
-      "Studied Linux permissions, users, groups, cron, services, logs, and common misconfiguration patterns through beginner-friendly security labs.",
-    tags: ["Linux", "Privilege Concepts", "Hardening"],
+      "Practiced port scanning, service enumeration, DNS analysis, HTTP fingerprinting, and safe reconnaissance workflows using Nmap and Linux tools in controlled lab environments.",
+    tags: ["Nmap", "Networking", "Linux"],
     link: "#",
   },
   {
-    title: "Support-to-Security Case Notes",
+    title: "Linux Privilege Escalation Fundamentals",
     description:
-      "Converted technical support experience into security-relevant case notes: root-cause analysis, log review, incident triage thinking, and clear communication.",
-    tags: ["Troubleshooting", "Logs", "Communication"],
+      "Explored Linux permissions, cron jobs, users, groups, SUID concepts, service enumeration, logging, and common privilege escalation fundamentals through beginner-friendly security labs.",
+    tags: ["Linux", "Privilege Escalation", "Security"],
     link: "#",
   },
 ];
 
 const skills = [
-  "Technical Troubleshooting",
-  "Networking Fundamentals",
-  "Linux Basics",
-  "Web Security Basics",
-  "Burp Suite Practice",
-  "Nmap Recon Basics",
+  "Linux",
+  "Networking",
+  "Nmap",
+  "Burp Suite",
+  "OWASP Top 10",
+  "Web Application Testing",
+  "Reconnaissance",
+  "SQL Injection Basics",
+  "XSS Basics",
+  "Privilege Escalation Basics",
+  "Security Reporting",
+  "AWS EC2",
+  "Kali Linux",
   "Log Analysis",
-  "Report Writing",
-  "Customer Communication",
 ];
 
 const learningPath = [
   "Networking",
   "Linux",
-  "Web Security",
+  "Web Application Security",
   "OWASP Top 10",
   "Burp Suite",
+  "Reconnaissance",
+  "Privilege Escalation",
   "Pentest Reporting",
+];
+
+const training = [
+  {
+    title: "Defronix DCJSP",
+    description:
+      "Completed practical cybersecurity training focused on penetration testing fundamentals, networking, Linux, reconnaissance, web application testing, and reporting.",
+  },
+  {
+    title: "Defronix DEHE Labs",
+    description:
+      "Hands-on ethical hacking lab practice covering scanning, enumeration, OWASP testing, Burp Suite basics, Linux fundamentals, and vulnerability assessment workflows.",
+  },
 ];
 
 const stats = [
@@ -521,8 +570,16 @@ function Cyber3DLab() {
 }
 
 function MarqueeStrip() {
-  const items = ["Junior Pentester", "Tech Support", "Networking", "Linux", "OWASP", "Burp Suite", "Reporting", "Ethical Hacking"];
-
+const items = [
+  "Pentesting",
+  "OWASP",
+  "Burp Suite",
+  "Linux",
+  "Nmap",
+  "Reconnaissance",
+  "Ethical Hacking",
+  "AWS",
+];
   return (
     <div className="marquee mt-16 border-y border-emerald-300/10 py-4 text-sm uppercase tracking-[0.35em] text-emerald-100/70">
       <div className="marquee-track">
@@ -625,8 +682,8 @@ export default function PortfolioStarter() {
                   I currently work in technical support, where I troubleshoot real user issues, analyze symptoms, communicate clearly, and document fixes. That background helps me think like a practical security tester: understand impact, verify evidence, and explain risk in simple language.
                 </p>
                 <p>
-                  I am learning penetration testing step by step through legal labs and beginner-friendly practice environments. My current focus areas are networking, Linux, web application security, OWASP Top 10, Burp Suite basics, Nmap basics, and professional report writing.
-                </p>
+  I completed Defronix DCJSP training and practical DEHE ethical hacking labs focused on reconnaissance, Linux, web application security, OWASP testing, enumeration, vulnerability assessment, and penetration testing fundamentals. My current focus is building strong real-world cybersecurity foundations through legal and authorized practice environments.
+</p>
                 <p className="rounded-2xl border border-emerald-300/20 bg-emerald-300/5 p-5 text-emerald-50 shadow-[0_24px_80px_rgba(0,0,0,.25)]">
                   Career goal: junior penetration tester / security analyst role where I can combine support experience, strong troubleshooting, and growing offensive-security fundamentals.
                 </p>
