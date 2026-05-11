@@ -1,5 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
+// ============================================================================
+// ALL DATA DECLARATIONS - MUST BE BEFORE COMPONENT
+// ============================================================================
+
 const profile = {
   name: "Abhisek Das",
   role: "Technical Support Engineer | Aspiring Penetration Tester",
@@ -11,35 +15,6 @@ const profile = {
   summary:
     "Technical Support Engineer transitioning into penetration testing and ethical hacking. Hands-on experience with web application security labs, OWASP testing, Linux fundamentals, reconnaissance, vulnerability assessment, and cybersecurity reporting through practical learning environments including Defronix DCJSP and DEHE labs.",
 };
-
-<section className="relative z-10 mx-auto max-w-7xl px-6 py-20 md:px-10">
-  <Reveal>
-    <p className="section-kicker">Training & Labs</p>
-    <h2 className="mb-8 mt-2 text-3xl font-black md:text-5xl">
-      Cybersecurity learning journey
-    </h2>
-  </Reveal>
-
-  <div className="grid gap-6 md:grid-cols-2">
-    {training.map((item, index) => (
-      <Reveal key={item.title} delay={index * 100}>
-        <TiltCard>
-          <Card className="project-card rounded-[1.5rem] border-emerald-300/10 bg-slate-900/70 backdrop-blur-xl">
-            <CardContent className="p-6">
-              <h3 className="text-2xl font-black text-white">
-                {item.title}
-              </h3>
-
-              <p className="mt-4 leading-7 text-slate-300">
-                {item.description}
-              </p>
-            </CardContent>
-          </Card>
-        </TiltCard>
-      </Reveal>
-    ))}
-  </div>
-</section>
 
 const projects = [
   {
@@ -88,6 +63,18 @@ const skills = [
   "Kali Linux",
   "Log Analysis",
 ];
+
+const learningPath = [
+  "Networking",
+  "Linux",
+  "Web Application Security",
+  "OWASP Top 10",
+  "Burp Suite",
+  "Reconnaissance",
+  "Privilege Escalation",
+  "Pentest Reporting",
+];
+
 const training = [
   {
     title: "Defronix DCJSP",
@@ -99,16 +86,6 @@ const training = [
     description:
       "Hands-on ethical hacking lab practice covering scanning, enumeration, OWASP testing, Burp Suite basics, Linux fundamentals, and vulnerability assessment workflows.",
   },
-];
-const learningPath = [
-  "Networking",
-  "Linux",
-  "Web Application Security",
-  "OWASP Top 10",
-  "Burp Suite",
-  "Reconnaissance",
-  "Privilege Escalation",
-  "Pentest Reporting",
 ];
 
 const stats = [
@@ -142,6 +119,10 @@ const animationFeatures = [
   "cursor-glow",
   "reduced-motion-support",
 ];
+
+// ============================================================================
+// UTILITY FUNCTIONS
+// ============================================================================
 
 function runPortfolioDataTests() {
   const failures = [];
@@ -212,6 +193,10 @@ if (portfolioDataTestFailures.length > 0 && typeof console !== "undefined") {
   console.warn("Portfolio data checks failed:", portfolioDataTestFailures);
 }
 
+// ============================================================================
+// CUSTOM HOOKS
+// ============================================================================
+
 function useCursorGlow() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -256,6 +241,10 @@ function useReveal(threshold = 0.18) {
 
   return [ref, visible];
 }
+
+// ============================================================================
+// COMPONENT UTILITIES
+// ============================================================================
 
 function Reveal({ children, className = "", delay = 0 }) {
   const [ref, visible] = useReveal();
@@ -568,16 +557,17 @@ function Cyber3DLab() {
 }
 
 function MarqueeStrip() {
-const items = [
-  "Pentesting",
-  "OWASP",
-  "Burp Suite",
-  "Linux",
-  "Nmap",
-  "Reconnaissance",
-  "Ethical Hacking",
-  "AWS",
-];
+  const items = [
+    "Pentesting",
+    "OWASP",
+    "Burp Suite",
+    "Linux",
+    "Nmap",
+    "Reconnaissance",
+    "Ethical Hacking",
+    "AWS",
+  ];
+  
   return (
     <div className="marquee mt-16 border-y border-emerald-300/10 py-4 text-sm uppercase tracking-[0.35em] text-emerald-100/70">
       <div className="marquee-track">
@@ -590,6 +580,10 @@ const items = [
     </div>
   );
 }
+
+// ============================================================================
+// MAIN COMPONENT
+// ============================================================================
 
 export default function PortfolioStarter() {
   const cursor = useCursorGlow();
@@ -680,8 +674,8 @@ export default function PortfolioStarter() {
                   I currently work in technical support, where I troubleshoot real user issues, analyze symptoms, communicate clearly, and document fixes. That background helps me think like a practical security tester: understand impact, verify evidence, and explain risk in simple language.
                 </p>
                 <p>
-  I completed Defronix DCJSP training and practical DEHE ethical hacking labs focused on reconnaissance, Linux, web application security, OWASP testing, enumeration, vulnerability assessment, and penetration testing fundamentals. My current focus is building strong real-world cybersecurity foundations through legal and authorized practice environments.
-</p>
+                  I completed Defronix DCJSP training and practical DEHE ethical hacking labs focused on reconnaissance, Linux, web application security, OWASP testing, enumeration, vulnerability assessment, and penetration testing fundamentals. My current focus is building strong real-world cybersecurity foundations through legal and authorized practice environments.
+                </p>
                 <p className="rounded-2xl border border-emerald-300/20 bg-emerald-300/5 p-5 text-emerald-50 shadow-[0_24px_80px_rgba(0,0,0,.25)]">
                   Career goal: junior penetration tester / security analyst role where I can combine support experience, strong troubleshooting, and growing offensive-security fundamentals.
                 </p>
@@ -689,6 +683,35 @@ export default function PortfolioStarter() {
             </TiltCard>
           </div>
         </Reveal>
+      </section>
+
+      <section className="relative z-10 mx-auto max-w-7xl px-6 py-20 md:px-10">
+        <Reveal>
+          <p className="section-kicker">Training & Labs</p>
+          <h2 className="mb-8 mt-2 text-3xl font-black md:text-5xl">
+            Cybersecurity learning journey
+          </h2>
+        </Reveal>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {training.map((item, index) => (
+            <Reveal key={item.title} delay={index * 100}>
+              <TiltCard>
+                <Card className="project-card rounded-[1.5rem] border-emerald-300/10 bg-slate-900/70 backdrop-blur-xl">
+                  <CardContent className="p-6">
+                    <h3 className="text-2xl font-black text-white">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-4 leading-7 text-slate-300">
+                      {item.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </TiltCard>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       <section id="skills" className="relative z-10 mx-auto max-w-7xl px-6 py-10 md:px-10">
