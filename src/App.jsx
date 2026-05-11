@@ -88,18 +88,6 @@ const skills = [
   "Kali Linux",
   "Log Analysis",
 ];
-
-const learningPath = [
-  "Networking",
-  "Linux",
-  "Web Application Security",
-  "OWASP Top 10",
-  "Burp Suite",
-  "Reconnaissance",
-  "Privilege Escalation",
-  "Pentest Reporting",
-];
-
 const training = [
   {
     title: "Defronix DCJSP",
@@ -111,6 +99,16 @@ const training = [
     description:
       "Hands-on ethical hacking lab practice covering scanning, enumeration, OWASP testing, Burp Suite basics, Linux fundamentals, and vulnerability assessment workflows.",
   },
+];
+const learningPath = [
+  "Networking",
+  "Linux",
+  "Web Application Security",
+  "OWASP Top 10",
+  "Burp Suite",
+  "Reconnaissance",
+  "Privilege Escalation",
+  "Pentest Reporting",
 ];
 
 const stats = [
